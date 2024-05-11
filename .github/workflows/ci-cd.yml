@@ -61,7 +61,9 @@ jobs:
                     tags: brightky/note_app:latest
     run-container:
         name: 'Run container'
-        needs: copy-configs
+        needs: 
+            - copy-configs
+            - dockerize
         runs-on: ubuntu-latest
         steps:
             - name: Run container
