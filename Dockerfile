@@ -11,5 +11,6 @@ ENV HOST=0.0.0.0
 RUN cd build && npm ci --omit=dev
 RUN ls -al
 RUN cd build && ls -al
+RUN cd build/bin && ls -al
 EXPOSE $PORT
 CMD [ "node", "build/bin/server.js" ]
