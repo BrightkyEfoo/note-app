@@ -66,5 +66,7 @@ COPY --chown=node:node --from=build /home/node/app/build .
 # Expose port
 EXPOSE $PORT
 
+RUN ls -al
+
 # Run the command to start the server using "dumb-init"
 CMD [ "dumb-init", "node", "bin/server.js" ]
