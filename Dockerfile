@@ -3,7 +3,7 @@ RUN mkdir -p /home/node/app && chown node:node /home/node/app
 WORKDIR /home/node/app
 USER node
 COPY --chown=node:node . .
-RUN npm ci --omit="dev"
+RUN npm install
 RUN node ace build --ignore-ts-errors
 ENV NODE_ENV=production
 ENV PORT=$PORT
