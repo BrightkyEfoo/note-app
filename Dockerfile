@@ -70,4 +70,4 @@ RUN pwd
 RUN ls -al bin
 
 # Run the command to start the server using "dumb-init"
-CMD [ "node" ]
+CMD [ "sh" ]
