@@ -1,5 +1,8 @@
 on:
   workflow_dispatch:
+  push:
+    branches:
+        - main
 env:
   NODE_VERSION: '20.x'
   FOLDER: ~/applications/note-app/backend
@@ -39,6 +42,7 @@ jobs:
 
     run-container:
         name: 'Run container'
+        needs: copy-configs
         runs-on: ubuntu-latest
         steps:
             - name: Run container
