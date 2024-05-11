@@ -18,7 +18,7 @@ services:
     restart: always
     depends_on:
       - postgres
-    image: brightky/note_app:latest
+    image: brightky/note_app:${IMAGE_VERSION}
     ports:
       - ${PORT}:${PORT}
       - 9229:9229
