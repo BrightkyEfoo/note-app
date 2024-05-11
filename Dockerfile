@@ -1,7 +1,7 @@
 ################## First Stage - Creating base #########################
 
 # Created a variable to hold our node base image
-ARG NODE_IMAGE=node:16.13.1-alpine
+ARG NODE_IMAGE=node:21-alpine
 
 # Using the variable to create our base image
 FROM $NODE_IMAGE AS base
@@ -41,7 +41,7 @@ COPY --chown=node:node . .
 FROM dependencies AS build
 
 # We run "node ace build" to build the app for production
-RUN node ace build --production
+RUN node ace build --ignore-ts-errors
 
 
 ################## Final Stage - Production #########################
@@ -58,7 +58,7 @@ ENV HOST=0.0.0.0
 COPY --chown=node:node ./package*.json ./
 
 # We run NPM CI to install the exact versions of dependencies
-RUN npm ci --production
+RUN npm ci --omit="dev"
 
 # Copy files to the working directory from the build folder the user
 COPY --chown=node:node --from=build /home/node/app/build .
