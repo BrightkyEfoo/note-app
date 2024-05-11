@@ -6,6 +6,8 @@ on:
 env:
   NODE_VERSION: '20.x'
   FOLDER: ~/applications/note-app/backend
+  IMAGE_VERSION: 2.0.${{ github.run_number }}
+  IMAGE_NAME: note_app
 
 jobs:
     create-folder:
@@ -58,7 +60,7 @@ jobs:
                 uses: docker/build-push-action@v5
                 with:
                     push: true
-                    tags: brightky/note_app:2.0.${{ github.run_number }}
+                    tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
                     no-cache: true
     run-container:
         name: 'Run container'
@@ -91,5 +93,6 @@ jobs:
                     echo DB_USER=${{ secrets.DB_USER }} >> ${{ env.FOLDER }}/.env
                     echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ${{ env.FOLDER }}/.env
                     echo DB_DATABASE=note_app >> ${{ env.FOLDER }}/.env
-                    echo IMAGE_VERSION=1.0.${{ github.run_number }} >> ${{ env.FOLDER }}/.env
+                    echo IMAGE_VERSION=${{ env.IMAGE_VERSION }} >> ${{ env.FOLDER }}/.env
+                    echo IMAGE_NAME=${{ env.IMAGE_NAME }} >> ${{ env.FOLDER }}/.env
                     docker compose -f ${{ env.FOLDER }}/docker-compose.yml up -d
