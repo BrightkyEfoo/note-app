@@ -6,9 +6,6 @@ ARG NODE_IMAGE=node:21-alpine
 # Using the variable to create our base image
 FROM $NODE_IMAGE AS base
 
-# Running a command to install dumb-init to handle processes
-RUN apk --no-cache add dumb-init
-
 # Creating folders and changing ownerships
 RUN mkdir -p /home/node/app && chown node:node /home/node/app
 
@@ -68,5 +65,9 @@ EXPOSE $PORT
 
 RUN ls -al
 
+RUN pwd
+
+RUN ls -al bin
+
 # Run the command to start the server using "dumb-init"
-CMD [ "dumb-init", "node", "bin/server.js" ]
+CMD [ "node", "bin/server.js" ]
