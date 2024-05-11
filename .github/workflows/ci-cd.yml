@@ -90,9 +90,8 @@ jobs:
                     echo NODE_ENV=production >> ${{ env.FOLDER }}/.env
                     # echo DB_HOST=postgres >> ${{ env.FOLDER }}/.env
                     echo DB_PORT=5432 >> ${{ env.FOLDER }}/.env
-                    echo DB_USER=${{ secrets.DB_USER }} >> ${{ env.FOLDER }}/.env
-                    echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ${{ env.FOLDER }}/.env
-                    echo DB_NAME=${{ secrets.DB_NAME }} >> ${{ env.FOLDER }}/.env
+                    echo DB_USER=root >> ${{ env.FOLDER }}/.env
+                    echo DB_PASSWORD=12345678 >> ${{ env.FOLDER }}/.env
                     echo DB_DATABASE=note_app >> ${{ env.FOLDER }}/.env
                     echo IMAGE_VERSION=${{ env.IMAGE_VERSION }} >> ${{ env.FOLDER }}/.env
                     echo IMAGE_NAME=${{ env.IMAGE_NAME }} >> ${{ env.FOLDER }}/.env
