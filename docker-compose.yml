@@ -14,13 +14,11 @@ services:
       - application_network
 
   note_app:
-    container_name: brightky/note_app:latest
+    container_name: note_app
     restart: always
     depends_on:
       - postgres
-    build:
-      context: .
-      target: dependencies
+    image: brightky/note_app:latest
     ports:
       - ${PORT}:${PORT}
       - 9229:9229
