@@ -26,7 +26,7 @@ services:
       - .env
     environment:
       - DB_HOST=postgres
-    command: node ace migration:run
+    command: node ace migration:run --force
     volumes:
       - ./:/home/node/app
     networks:
