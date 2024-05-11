@@ -26,7 +26,6 @@ services:
       - .env
     environment:
       - PG_HOST=postgres
-      - REDIS_HOST=redis
     volumes:
       - ./:/home/node/app
     networks:

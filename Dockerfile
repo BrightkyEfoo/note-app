@@ -20,4 +20,4 @@ COPY --chown=node:node ./package*.json ./
 COPY --chown=node:node --from=build /home/node/app/build .
 RUN npm ci --omit=dev
 EXPOSE $PORT
-CMD [ "node", "bin/server.js" ]
+CMD [ "node", "build/bin/server.js" ]
