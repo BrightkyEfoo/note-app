@@ -9,5 +9,6 @@ ENV NODE_ENV=production
 ENV PORT=$PORT
 ENV HOST=0.0.0.0
 RUN cd build && npm ci --omit=dev
+RUN ls -al
 EXPOSE $PORT
 CMD [ "node", "build/bin/server.js" ]
