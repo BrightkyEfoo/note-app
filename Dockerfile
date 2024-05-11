@@ -15,4 +15,4 @@ RUN cd build/bin && ls -al
 RUN pwd
 # RUN node server.js
 EXPOSE $PORT
-CMD [ "node", "server.js" ]
+CMD [ "node", "/home/node/app/build/bin/server.js" ]
