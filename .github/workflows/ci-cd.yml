@@ -84,7 +84,7 @@ jobs:
                     rm ${{ env.FOLDER }}/.env
                     echo TZ=UTC >> ${{ env.FOLDER }}/.env
                     echo PORT=3333 >> ${{ env.FOLDER }}/.env
-                    echo HOST=${{ secrets.HOST }} >> ${{ env.FOLDER }}/.env
+                    echo HOST=0.0.0.0 >> ${{ env.FOLDER }}/.env
                     echo LOG_LEVEL=info >> ${{ env.FOLDER }}/.env
                     echo APP_KEY=${{ secrets.APP_KEY }} >> ${{ env.FOLDER }}/.env
                     echo NODE_ENV=production >> ${{ env.FOLDER }}/.env
