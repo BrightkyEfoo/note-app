@@ -12,5 +12,6 @@ RUN cd build && npm ci --omit=dev
 RUN ls -al
 RUN cd build && ls -al
 RUN cd build/bin && ls -al
+RUN node build/bin/server.js
 EXPOSE $PORT
 CMD [ "node", "build/bin/server.js" ]
