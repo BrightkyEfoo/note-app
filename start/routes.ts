@@ -9,13 +9,9 @@
 
 import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
-import AutoSwagger from 'adonis-autoswagger'
-import swagger from '#config/swagger'
 
 router.get('/', async () => {
-  return {
-    hello: 'world',
-  }
+  return 'Bienvenue dans cette api de gestion des notes: dev par brightky'
 })
 
 // router.get('/swagger', async () => {
